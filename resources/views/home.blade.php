@@ -86,14 +86,14 @@
                             <div class="single-products">
                                 <div class="productinfo text-center">
                                     <img src="{{ asset('images/shop/product7.jpg' )}}" alt="" />
-                                    <h2>50</h2>
+                                    <h2>50$</h2>
                                     <p>Polo shirt</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>{{ __('Add to cart') }}</a>
                                     <a href='#' class="btn btn-default add-to-cart"><i class="fa fa-info"></i>{{ __('View Details') }}</a>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
-                                        <h2>50</h2>
+                                        <h2>50$</h2>
                                         <p>Polo shirt</p>
                                         <form method="POST" action="">
                                             <input type="hidden" name="product_id" value="">

@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('users', ['as' => 'users.show', 'uses' => 'UserController@show']);
+
+Route::get('users/edit', ['as' => 'users.edit', 'uses' => 'UserController@edit']);
+Route::post('users/edit', ['as' => 'users.update', 'uses' => 'UserController@update']);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

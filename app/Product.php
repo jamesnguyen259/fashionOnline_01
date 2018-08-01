@@ -8,7 +8,7 @@ class Product extends Model
 {
     protected $table = 'products';
     public $timestamp = true;
-    
+
     public function comment()
     {
         return $this->morphMany('App\Comment', 'object');

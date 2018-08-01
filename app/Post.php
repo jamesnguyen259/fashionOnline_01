@@ -8,7 +8,7 @@ class Post extends Model
 {
     protected $table = 'posts';
     public $timestamp = true;
-    
+
     public function comment()
     {
         return $this->morphMany('App\Comment', 'object');

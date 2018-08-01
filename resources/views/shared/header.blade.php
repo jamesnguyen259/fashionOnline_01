@@ -48,8 +48,8 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="#"><i class="fa fa-user"></i> {{ Auth::check() ? Auth::user()->name : __('Account') }}</a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i> {{ __('Wishlist') }}</a></li>
+                                    <li><a href="{{ Auth::check() ? route('users.show') : route('login') }}"><i class="fa fa-user"></i> {{ Auth::check() ? Auth::user()->name : __('Account') }}</a></li>
+                                    <li><a href=""><i class="fa fa-star"></i> {{ __('Wishlist') }}</a></li>
                                     <li><a href="#"><i class="fa fa-crosshairs"></i> {{ __('Checkout') }}</a></li>
                                     <li><a href="#"><i class="fa fa-shopping-cart"></i> {{ __('Cart') }}</a></li>
                                     @if(Auth::check())
@@ -81,7 +81,7 @@
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="#" >{{ __('Home') }}</a></li>
+                                    <li><a href="{{ route('home') }}" >{{ __('Home') }}</a></li>
                                     <li><a href="#" >{{ __('Products') }}</a></li>
                                     <li><a href="#" >{{ __('Blog') }}</a></li>
                                     <li><a href="#" >{{ __('Contact Us') }}</a></li>

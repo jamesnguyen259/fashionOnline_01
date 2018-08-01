@@ -8,7 +8,7 @@ class Category extends Model
 {
     protected $table = 'categories';
     public $timestamp = true;
-    
+
     public function categoryPost()
     {
         return $this->hasMany('App\CategoryPost', 'category_id', 'id');

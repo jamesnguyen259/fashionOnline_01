@@ -13,5 +13,4 @@ class Locale
      * @param  \Closure  $next
      * @return mixed
      */
-
 }

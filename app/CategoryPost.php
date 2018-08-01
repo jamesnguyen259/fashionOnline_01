@@ -8,7 +8,7 @@ class CategoryPost extends Model
 {
     protected $table = 'category_posts';
     public $timestamp = true;
-    
+
     public function category()
     {
         return $this->belongsTo('App\Category', 'category_id', 'id');
