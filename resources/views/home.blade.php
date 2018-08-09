@@ -81,20 +81,21 @@
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
                     <h2 class="title text-center">{{ __('Features Items') }}</h2>
+                    @foreach ($products as $product)
                     <div class="col-sm-4">
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="{{ asset('images/shop/product7.jpg' )}}" alt="" />
-                                    <h2>50</h2>
-                                    <p>Polo shirt</p>
+                                    <img src="{{$product->image_url}}" alt="" />
+                                    <h2>{{$product->price}}$</h2>
+                                    <p>{{$product->name}}</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>{{ __('Add to cart') }}</a>
                                     <a href='#' class="btn btn-default add-to-cart"><i class="fa fa-info"></i>{{ __('View Details') }}</a>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
-                                        <h2>50</h2>
-                                        <p>Polo shirt</p>
+                                        <h2>{{$product->price}}$</h2>
+                                        <p>{{$product->name}}</p>
                                         <form method="POST" action="">
                                             <input type="hidden" name="product_id" value="">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -115,12 +116,14 @@
                             </div>
                         </div>
                     </div>
-                    <ul class="pagination">
+                    @endforeach
+                    {{$products->links()}}
+                    {{-- <ul class="pagination">
                         <li class="active"><a href="">1</a></li>
                         <li><a href="">2</a></li>
                         <li><a href="">3</a></li>
                         <li><a href="">&raquo;</a></li>
-                    </ul>
+                    </ul> --}}
                 </div><!--features_items-->
 
                 <div class="category-tab"><!--category-tab-->
