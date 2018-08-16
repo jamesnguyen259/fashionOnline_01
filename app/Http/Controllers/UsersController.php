@@ -80,7 +80,9 @@ class UsersController extends Controller
         $user->description = $request->get('description');
         $user->phone = $request->get('phone');
         $user->password = bcrypt($request->get('password'));
-        $user->image_url = '/images/home/' . $request->get('image_url');
+        $file = $request->file('image_url');
+        $name = $file->getClientOriginalName();
+        $user->image_url = 'images/home/'.$name;
         $user->save();
         return redirect(action('UsersController@show'))->with('status', 'User profile has been updated!');
     }

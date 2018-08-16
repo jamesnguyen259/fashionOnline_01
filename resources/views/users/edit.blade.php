@@ -9,14 +9,14 @@
             <h2>{{ __('Update your profile') }}</h2>
         </div>
         <div class="col-lg-8 push-lg-4 personal-info">
-            {!! Form::open(['method' => 'POST' , 'route' => 'users.update']) !!}
+            {!! Form::open(['method' => 'POST' , 'route' => 'users.update', 'enctype' => 'multipart/form-data']) !!}
                 @foreach ($errors->all() as $error)
                 <p class="alert alert-danger">{{ $error }}</p>
                 @endforeach
                 <img src="{{ asset("$user->image_url") }}" class="m-x-auto img-fluid img-circle" alt="avatar" />
                 <h6 class="m-t-2">Upload a different photo</h6>
                 <label class="custom-file">
-                    {!! Form::file('image'); !!}
+                    {!! Form::file('image_url'); !!}
                   <span class="custom-file-control">Choose file</span>
                 </label>
                 <div class="form-group row">
