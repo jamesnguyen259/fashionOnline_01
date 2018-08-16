@@ -13,4 +13,9 @@ class Comment extends Model
     {
         return $this->morphTo();
     }
+
+    public function user()
+    {
+    	return $this->belongsTo('App\User','user_id','id');
+    }
 }

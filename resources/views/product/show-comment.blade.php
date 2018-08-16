@@ -215,7 +215,6 @@
 								<li><a href="#details" data-toggle="tab">Details</a></li>
 								<li><a href="#companyprofile" data-toggle="tab">Company Profile</a></li>
 								<li><a href="#tag" data-toggle="tab">Tag</a></li>
-								{{-- <li class="active"><a href="url('/comments/store')" data-toggle="tab">Reviews</a></li> --}}
 								<li class="active"><a href="#reviews" data-toggle="tab">Reviews</a></li>
 							</ul>
 						</div>
@@ -375,33 +374,16 @@
 							
 							<div class="tab-pane fade active in" id="reviews" >
 								<div class="col-sm-12">
-									{{-- @foreach ($comments as $comment)
-									{{$comment->user->name}}
-									{{$comment->content}}
-									<br>
-									@endforeach --}}
-									@foreach ($comments as $comment)
-									<li class="media">
-										<a class="pull-left" href="#">
-                                			<img class="media-object" src="{{asset('images/blog/man-two.jpg')}}" alt="">
-                            			</a>
-                            			<div class="media-body">
-                                			<ul class="sinlge-post-meta">
-                                    			<li><i class="fa fa-user"></i>{{$comment->user->name}}</li>
-                                    			<li><i class="fa fa-clock-o"></i> {{date('h:i:s A', strtotime($comment->create_at))}}</li>
-                                    			<li><i class="fa fa-calendar"></i> {{date('d M, Y', strtotime($comment->create_at))}}</li>
-                                			</ul>
-                                			<p>{{$comment->content}}</p>
-                                			<a class="btn btn-primary" href=""><i class="fa fa-reply"></i>Replay</a>
-                            			</div>
-                        			</li>
-
-                        			@endforeach
-									{!! Form::open (['method'=>'POST','url'=>'/comments']) !!}
-									{!! Form::hidden('product_id',$product->id)!!}
-									{!! Form::textarea('comment',null,['placeholder'=>_('Comment')]) !!}
-									{!! Form::submit( __('Submit') , ['class' => 'btn btn-default']) !!}
-									{!! Form::close() !!}
+									{{-- <ul>
+										<li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
+										<li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
+										<li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+									</ul> --}}
+									{{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+									<p><b>Write Your Review</b></p> --}}
+									@foreach($comments as $comment)
+										{{$comment->content}}
+									@endforeach
 								</div>
 							</div>
 							

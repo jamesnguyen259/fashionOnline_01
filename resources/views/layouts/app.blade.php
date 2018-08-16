@@ -12,7 +12,7 @@
         <!-- <link href="{{ asset('css/price-range.css')}}" rel="stylesheet"> -->
         <link href=" {{ asset('bower_components/animate.css/animate.css') }}" rel="stylesheet">
         <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-        <link href="{{ asset('bower_components/responsive/src/css/responsive.css') }}" rel="stylesheet">
+        <link href="{{ asset('bower_components/responsive/vendor/responsive.css') }}" rel="stylesheet">
         <!--[if lt IE 9]>
         <script src="{{ asset('js/html5shiv.js') }}"></script>
         <script src="{{ asset('js/respond.min.js') }}"></script>

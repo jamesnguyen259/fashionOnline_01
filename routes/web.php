@@ -22,3 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/product', 'ProductController@product')->name('product');
 
 Route::get('/product/details/{id}','ProductController@productDetails');
+
+Route::post('/comments/store','CommentController@store');
+
+// Route::get('/comments/show', 'CommentController@show');
+
+// Route::resource('/comments','homeindex',['only'=>['store','show']]);
