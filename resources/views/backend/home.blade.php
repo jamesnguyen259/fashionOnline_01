@@ -20,7 +20,7 @@
                                         <i class="fa fa-user-plus fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
+                                        <div class="huge">{{$users_no}}</div>
                                         <div>Users</div>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                         <i class="fa fa-facebook-official    fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">12</div>
+                                        <div class="huge">{{$posts_no}}</div>
                                         <div>Posts</div>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@
                                         <i class="fa fa-shopping-cart fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">124</div>
+                                        <div class="huge">{{$orders_no}}</div>
                                         <div>Orders</div>
                                     </div>
                                 </div>
@@ -89,12 +89,12 @@
                                         <i class="fa fa-star fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
+                                        <div class="huge">{{$products_no}}</div>
                                         <div>Products</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="/admin/products">
                                 <div class="panel-footer">
                                     <span class="pull-left">View Details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

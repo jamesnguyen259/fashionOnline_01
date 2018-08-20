@@ -7,8 +7,6 @@
         <!-- edit form column -->
         <div class="col-lg-4 text-lg-center">
             <h2>{{ __('Update your profile') }}</h2>
-        </div>
-        <div class="col-lg-8 push-lg-4 personal-info">
             {!! Form::open(['method' => 'POST' , 'route' => 'users.update', 'enctype' => 'multipart/form-data']) !!}
                 @foreach ($errors->all() as $error)
                 <p class="alert alert-danger">{{ $error }}</p>
@@ -19,6 +17,8 @@
                     {!! Form::file('image_url'); !!}
                   <span class="custom-file-control">Choose file</span>
                 </label>
+        </div>
+        <div class="col-lg-8 push-lg-4 personal-info">
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Full name</label>
                     <div class="col-lg-9">
@@ -68,7 +68,6 @@
                         {!! Form::button('Cancel', ['type' => 'reset', 'class' => 'btn btn-default']) !!}
                     </div>
                 </div>
-            </form>
             {!! Form::close() !!}
         </div>
     </div>

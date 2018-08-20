@@ -8,7 +8,16 @@ class Product extends Model
 {
     protected $table = 'products';
     public $timestamp = true;
-    
+
+    protected $fillable = [
+        'name',
+        'title',
+        'description',
+        'price',
+        'brand_id',
+        'image_url',
+    ];
+
     public function comment()
     {
         return $this->morphMany('App\Comment', 'object');

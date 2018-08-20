@@ -1,6 +1,6 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/admin/">E-shopper</a>
+                    <a class="navbar-brand" href="/admin/">Admin page</a>
                 </div>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -11,7 +11,7 @@
                 </button>
 
                 <ul class="nav navbar-nav navbar-left navbar-top-links">
-                    <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
+                    <li><a href="/"><i class="fa fa-home fa-fw"></i> Home</a></li>
                 </ul>
 
                 <ul class="nav navbar-right navbar-top-links">
