@@ -7,6 +7,11 @@
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
                 <div class="login-form"><!--login form-->
+                    @if (session('status'))
+                    <div class="alert alert-success">
+                    {{ session('status') }}
+                    </div>
+                    @endif
                     <h2>{{ __('Login to your account') }}</h2>
                     {!! Form::open(['method' => 'POST' , 'route' => 'login']) !!}
                         @foreach ($errors->all() as $error)

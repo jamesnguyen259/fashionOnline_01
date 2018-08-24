@@ -3,18 +3,21 @@
 @section('title', 'E-Shopper')
 
 @section('content')
-
 <section id="slider"><!--slider-->
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
+                @if (session('status'))
+                <div class="alert alert-success">
+                {{ session('status') }}
+                </div>
+                @endif
                 <div id="slider-carousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
                         <li data-target="#slider-carousel" data-slide-to="1"></li>
                         <li data-target="#slider-carousel" data-slide-to="2"></li>
                     </ol>
-
                     <div class="carousel-inner">
                         <div class="item active">
                             <div class="col-sm-6">
@@ -85,29 +88,22 @@
                     <div class="col-sm-4">
                         <div class="product-image-wrapper">
                             <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="{{$product->image_url}}" alt="" />
-                                    <h2>{{ $product->price }}$</h2>
-                                    <p>{{ $product->name }}</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>{{ __('Add to cart') }}</a>
-                                    <a href='#' class="btn btn-default add-to-cart"><i class="fa fa-info"></i>{{ __('View Details') }}</a>
-                                </div>
-                                <div class="product-overlay">
-                                    <div class="overlay-content">
-                                        <h2>{{ $product->price }}$</h2>
-                                        <p>{{ $product->name }}</p>
-                                        <form method="POST" action="">
-                                            <input type="hidden" name="product_id" value="">
-                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <button type="submit" class="btn btn-fefault add-to-cart">
-                                                <i class="fa fa-shopping-cart"></i>
-                                                {{ __('Add to cart') }}
-                                            </button>
-                                        </form>
-                                        <a href='' class="btn btn-default add-to-cart"><i class="fa fa-info"></i>{{ __('View Details') }}</a>
+                                    <div class="productinfo text-center">
+                                        <img src="{{$product->image_url}}" alt="" />
+                                        <h2>{{$product->price}}$</h2>
+                                        <p>{{$product->name}}</p>
+                                        <a href="{{url("/cart/additem/$product->id")}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a href="{{url("product/details/$product->id")}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>View Details</a>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <div class="overlay-content">
+                                            <h2>{{$product->price}}$</h2>
+                                            <p>{{$product->name}}</p>
+                                            <a href="{{url("/cart/additem/$product->id")}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                            <a href="{{url("product/details/$product->id")}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>View Details</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             <div class="choose">
                                 <ul class="nav nav-pills nav-justified">
                                     <li><a href=""><i class="fa fa-plus-square"></i>Add to wishlist</a></li>

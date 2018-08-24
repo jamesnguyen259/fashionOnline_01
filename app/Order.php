@@ -6,9 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $fillable = [
+        'name',
+        'email',
+        'address',
+        'payment',
+        'user_id',
+        'total',
+        'order_status',
+    ];
+
     protected $table = 'orders';
     public $timestamp = true;
-    
+
     public function user()
     {
         return $this->belongsTo('App\User', 'user_id', 'id');

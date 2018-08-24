@@ -55,6 +55,7 @@
                   </div>
                   <div class="panel-footer">
                     <a href="#" type="button" class="btn btn-sm btn-warning">Make a new post</a>
+                    <a href="/users/order" type="button" class="btn btn-sm btn-warning">List ordered</a>
                     <span class="pull-right">
                       <a href="{{ route('users.edit') }}" type="button" class="btn btn-sm btn-warning">Edit user profile</a>
                     </span>

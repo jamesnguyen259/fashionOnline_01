@@ -6,6 +6,11 @@
 
     <section id="advertisement">
         <div class="container">
+            @if (session('status'))
+            <div class="alert alert-success">
+            {{ session('status') }}
+            </div>
+            @endif
             <img src="images/shop/advertisement.jpg" alt="" />
         </div>
     </section>
@@ -101,24 +106,28 @@
 
                 <div class="col-sm-9 padding-right">
                     <div class="features_items"><!--features_items-->
+                    <b> Total Products</b>:  {{$products->total()}}
+
+                        @if($products->isEmpty())
+                        <h1>Sorry, there's no product</h1>
+                        @else
+                        <?php $countP=0; ?>
                         <h2 class="title text-center">Features Items</h2>
                         @foreach ($products as $product)
+                        <input type="hidden" id="pro_id<?php echo $countP; ?>" value="{{$product->id}}">
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
+                                        <a href="{{url("/product/details/$product->id")}}">
                                         <img src="{{$product->image_url}}" alt="" />
+                                        </a>
                                         <h2>{{$product->price}}$</h2>
-                                        <p>{{$product->name}}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <div class="overlay-content">
-                                            <h2>{{$product->price}}$</h2>
-                                            <p>{{$product->name}}</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            <a href="{{url("product/details/$product->id")}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>View Details</a>
-                                        </div>
+                                        <p><a href="{{url("/product/details/$product->id")}}">{{$product->name}}</a></p>
+                                        <button class="btn btn-success add-to-cart" id="cartBtn<?php echo $countP; ?>">Add to cart</button>
+                                        <div id="successMsg<?php echo $countP; ?>" class="alert alert-success"></div>
+                                        <!-- <a href="{{url("/cart/additem/$product->id")}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a href="{{url("product/details/$product->id")}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>View Details</a> -->
                                     </div>
                                 </div>
                                 <div class="choose">
@@ -129,20 +138,39 @@
                                 </div>
                             </div>
                         </div>
+                        <?php $countP++; ?>
                         @endforeach
                         {{$products->links()}}
-
-
-                        {{-- <ul class="pagination">
-                            <li class="active"><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">&raquo;</a></li>
-                        </ul> --}}
+                        @endif
                     </div><!--features_items-->
                 </div>
             </div>
         </div>
     </section>
 
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function(){
+            <?php $maxP = count($products);
+            for ($i=0;$i<$maxP;$i++) {
+                ?>
+            $('#successMsg<?php echo $i;?>').hide();
+            $('#cartBtn<?php echo $i; ?>').click(function(){
+                var pro_id<?php echo $i; ?> = $('#pro_id<?php echo $i;?>').val();
+                $.ajax({
+                    type: 'get',
+                    url: '<?php echo url("/cart/additem");?>/'+pro_id<?php echo $i;?>,
+                    success:function(){
+                        $('#cartBtn<?php echo $i;?>').hide();
+                        $('#successMsg<?php echo $i;?>').show();
+                        $('#successMsg<?php echo $i;?>').append('Products has been added to cart');
+                    }
+                });
+            });
+            <?php
+            }?>
+        });
+    </script>
 @endsection

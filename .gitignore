@@ -13,4 +13,5 @@ yarn-error.log
 /public/bower_components
 /public/images
 /public/admin_assets
+composer.lock
 
